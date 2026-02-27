@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
-import dbConnect from "@/lib/dbConnect";
+// import connectDB from "@/lib/connectDB";
+import { connectDB } from "@/lib/connectDB";
 import BannedToken from "@/models/BannedToken";
 
 export async function GET(req) {
   try {
-    await dbConnect();
+    await connectDB();
 
     const { searchParams } = new URL(req.url);
     const token = searchParams.get("token");
